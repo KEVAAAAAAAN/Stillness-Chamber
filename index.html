@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stillness Chamber</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      transition: background-color 1.5s ease;
+    }
+    .phrase {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    input[type="text"] {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #fff;
+      color: #fff;
+      font-size: 1rem;
+      text-align: center;
+      outline: none;
+      padding: 0.5rem;
+      width: 300px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <audio id="tone432" autoplay loop>
+    <source src="https://cdn.jsdelivr.net/gh/anars/blank-audio/432hz.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="phrase">You are already inside.<br>Take one breath.</div>
+  <form id="chamber-form">
+    <input type="text" id="input-field" autocomplete="off" />
+  </form>
+
+  <script>
+    const form = document.getElementById('chamber-form');
+    const body = document.body;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      body.innerHTML = '';
+      body.style.backgroundColor = '#111';
+    });
+  </script>
+</body>
+</html>
